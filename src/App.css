@@ -1,38 +1,479 @@
-.App {
-  text-align: center;
+:root {
+    --main-grey: #C4C4C4;
+    --bottom-border: 1px solid var(--main-grey);
+    --dp-size:300px;
+    --dp-mobile-size:220px;
+    --topbar-height:58px;
+    --dist-page-boder-top:40px; 
+    --arc-angle: 30deg; /* 360deg / 12 images */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: inherit;
+    text-decoration: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+html {
+    overflow-y: overlay; /*  account for scrollbar width */
+}
+
+
+h1, h2, h3, h5 { 
+    font-family: 'Poppins', sans-serif; 
+}
+
+/* like landing page hey */
+h1 { 
+    font-size: 40px; 
+    margin-bottom: 10px;
+}
+
+/* like every page header */
+h2 { 
+    font-size: 26px; 
+}
+
+/* like navbar */
+h3 {
+    font-size: 18px;
+}
+
+/* like text under every page header */
+h4 {
+    font-size: 18px;
+    font-weight:normal;
+}
+
+/* like page link */
+h5 {
+    font-size: 16px;
+}
+
+p, h4 {
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.5px;
+    line-height: 1.5em;
+}
+
+p {
+    font-size: 18px;
+}
+
+.page {
+    padding-top: var(--topbar-height);
+}
+
+.inner-container {
+    margin: 0 20px;
+    padding-top: var(--dist-page-boder-top);
+}
+
+.top-border {
+    border-top: var(--bottom-border)
+}
+
+
+.margin-btm-10 { 
+    margin-bottom: 10px; 
+}
+
+.margin-btm-20 {
+    margin-bottom: 20px;
+}
+
+.margin-btm-30 {
+    margin-bottom: 30px;
+}
+
+/* use this for having page link styling within paragraph */
+.page-link-container h5 {
+    padding-bottom: 8px;
+}
+
+.page-link-container {
+    display: inline-flex;
+    position:relative;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.page-link-line {
+    position: absolute;
+    border-bottom: 2px solid black;
+    width: 100%;
+    bottom: 0;
+    transition: 0.3s;
+}
+
+.page-link-container:hover > .page-link-line, .page-link-line:hover {
+    border-bottom: 8px solid black;
+}
+
+.button-link {
+    width: fit-content;
+    padding: 10px 15px;
+    color: white;
+    background-color: var(--main-grey);
+    cursor: pointer;
+    display: inline-block;
+}
+
+.button-link h5 {
+    font-weight: 300;
+}
+
+
+/* TOPBAR */
+#topbar {
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    border-bottom: var(--bottom-border);
+    background-color: white;
+}
+
+#topbar h3 {
+    line-height: var(--topbar-height);
+    cursor: pointer;
+}
+
+#topbar-inner-container{
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+}
+
+ul li:first-child {
+    margin-right: auto;
+}
+
+ul li:not(:first-child) {
+    justify-self: flex-end;
+    text-align: right;
+    margin-left: 20px;
+}
+/* TOPBAR */
+
+
+/* LANDING PAGE INTRODUCTION SECTION */
+#landing-page .inner-container {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    align-items: center;
+    border-top: none;
+    padding-top: var(--topbar-height);
+}
+
+#dp-container {
+    background-color: var(--main-grey);
+    position: relative;
+    width: var(--dp-size);
+    height: var(--dp-size);
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 0;
+    margin: 0 auto;
+}
+
+#dp-pie {
+    width: var(--dp-size);
+    height: var(--dp-size);
+    position:absolute;
+    top: 0;
+    left: 0;
+    background: conic-gradient(black var(--arc-angle), transparent var(--arc-angle) 170deg, transparent 170deg);
+    z-index: -1;
+    transform-origin: center;
+}
+
+#dp {
+    width: var(--dp-size);
+    height: var(--dp-size);
+    border-radius: 50%;
+    image-rendering: smooth;
+    border: 3px solid transparent;
+    box-sizing: border-box;
+    z-index:1;
+}
+
+#landing-page-intro {
+    padding-top: calc(var(--topbar-height) / 2);
+}
+
+#landing-page h1 span {
+    position: relative;
+    margin-left: 5px;
+}
+
+#wave {
+    padding-top: 2px;
+    max-height: 53px;
+    position: absolute;
+}
+/* LANDING PAGE */
+
+
+/* PROJECTS SECTION */
+.projects-container {
+    display: grid;
+    grid-template-columns: 1;
+    gap: 40px 0px;
+}
+
+.project-img {
+    width: 100%;
+    height:auto;
+    border:2px solid var(--main-grey);
+    box-sizing: border-box;
+}
+/* PROJECTS SECTION */
+
+
+/* CONTACTS PAGE */
+#contact-section .inner-container {
+    margin-bottom: var(--topbar-height);
+}
+
+#peace-img {
+    max-height: 22px;
+    position: absolute;
+}
+
+.social-icon-container {
+    display: grid;
+    grid-template-columns: repeat(4, min-content);
+    grid-gap: 10px;
+    justify-content: left;
+}
+
+.social-icon-container .fa {
+    padding: 12px;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    background-color: var(--main-grey);
+    border:2px var(--main-grey) solid;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.social-icon-container .fa:hover {
+    transform: scale(1.1);
+}
+/* CONTACTS PAGE */
+
+
+
+/* PROJECT PAGE - INDIVIDUAL PROJECT */
+.project-page .inner-container {
+    border-top: none;
+    position: relative;
+}
+
+.project-page img, .project-page video {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+}
+
+.slideshow-container {
+    position: relative;
+    overflow-y: hidden;
+    height: fit-content;
+    border: 3px solid var(--main-grey)
+}
+
+/* remove gap at bottom */
+.slideshow-container img, .slideshow-container video {
+    display: block;
+}
+
+
+.slideshow-slide-indicator-container {
+    display: grid;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.slideshow-slide-indicator {
+    width: 40px;
+    height: 8px;
+    cursor: pointer;
+    display: inline-block;
+    margin:0 5px;
+}
+
+.on-slide-indicator {
+    background-color: black;
+}
+
+.off-slide-indicator {
+    background-color: var(--main-grey);
+}
+
+.off-slide-indicator:hover {
+    background-color: black;
+}
+
+.arrow-container {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    cursor: pointer;
+    border: 2px solid white;
+    top: calc(50% - 10px);
+    transition: 1s;
+    box-sizing: border-box;
+}
+
+.arrow-container .fa {
+    color: white;
+}
+
+.slideshow-arrow {
+    animation-timing-function: ease-in;
+    padding-bottom: 2px;
+    font-size: 28px;
+    color: white;
+}
+
+.left-arrow-container {
+    left: 2%;
+}
+
+.right-arrow-container {
+    right: 2%;
+}
+
+.slideshow-container:hover > .left-arrow-container {
+    left: 3%;
+    background-color: black;
+}
+
+.slideshow-container:hover > .right-arrow-container {
+    right: 3%;
+    background-color: black;
+}
+/* PROJECT PAGE - INDIVIDUAL PROJECT */
+
+
+/* APPLY STYLING TO MOBILE, INSTEAD OF HAVING STYLING FOR EACH BREAKPOINTS */
+@media screen and (max-width:499px){
+    #dp, #dp-pie, #dp-container {
+        width: var(--dp-mobile-size);
+        height: var(--dp-mobile-size);
+    }
+
+    #topbar-inner-container li:first-child{
+        margin-left: 20px;
+    }
+
+    #topbar-inner-container li:last-child {
+        margin-right: 20px;
+    }
+
+    .social-icon-container {
+        justify-content: center;
+    }
+
+    #projects-page-section h1 {
+        font-size: 34px;
+    }
+}
+
+/* 500px: IPADS, TABLETS */
+@media screen and (min-width:500px) and (max-width:768px) {
+    .inner-container {
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    #topbar-inner-container {
+        width: 500px;
+    }
+
+    .project-container {
+        width: 100%;
+    }
+}
+
+
+
+/* 769px — 1024px: SMALL SCREENS, LAPTOPS */
+@media only screen and (min-width: 769px) and (max-width:1024px) {
+    .inner-container {
+        width: 759px;
+        margin: 0 auto;
+    }
+
+    #topbar-inner-container {
+        width: 759px;
+    }
+
+    #landing-page .inner-container {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    #landing-page-intro, #resume {
+        padding:20px 10px;
+    }
+
+    #dp-container {
+        margin:20px 10px;
+    }
+
+
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+    }
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
+/* 1025px — more: EXTRA LARGE SCREENS */
+@media only screen and (min-width:1025px) {
+    .page {
+        padding-top: calc(var(--topbar-height) * 2);
+    }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+    .inner-container, #topbar-inner-container {
+        width: 1015px;
+    }
+
+    .inner-container {
+        margin: 0 auto;
+        padding-top: calc(var(--dist-page-boder-top) * 1.2);
+    }
+
+    .project-page .inner-container {
+        padding-top:0px;
+    }
+
+    #landing-page .inner-container {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    #dp-container {
+        margin:0 20px 0 100px;
+    }
+
+    #landing-page-intro, #resume {
+        padding: 0 100px 0 20px;
+    }
+
+    .projects-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 20px;
+    }
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
