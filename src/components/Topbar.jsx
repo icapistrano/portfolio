@@ -1,29 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
 export const Topbar = () => {
+    const getIsMobile = () => window.innerWidth < 500;
+
     const { pathname } = useLocation();
-    const [windowWidth, setWindowWidth] = useState(false);
+    const [isMobile, setIsMobile] = useState(getIsMobile());
 
     const homeUrl = "/";
     const projectsUrl = "/projects"
 
     const scrollToSection = (topOffset, path) => {
-
         if (path === pathname) {
-            window.scrollTo({
-                top: topOffset,
-                left: 0,
-                behavior: "smooth"
-            })
+            window.scrollTo({top: topOffset, left: 0, behavior: "smooth"})
         }
     }
 
-    window.addEventListener('resize', () => {
-        window.innerWidth < 500 ? setWindowWidth(true) : setWindowWidth(false);
-    });
+    useEffect(() => {
+        const onResize = () => { setIsMobile(getIsMobile()) }
+
+        window.addEventListener('resize', onResize);
+
+        return (() => {
+            window.removeEventListener('resize', onResize);
+        })
+        
+    }, [])
 
     return (
         <div id='topbar'>
@@ -33,7 +37,7 @@ export const Topbar = () => {
                     <div>
                         <Link to="/"  className="text-link"> 
                             <h3 id="logo" onClick={() => scrollToSection(0, homeUrl)}>
-                                {windowWidth ? 'icapistrano' : 'Immanuel Capistrano'}
+                                {isMobile ? 'icapistrano' : 'Immanuel Capistrano'}
                             </h3>
                         </Link>
                     </div>

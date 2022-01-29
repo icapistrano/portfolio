@@ -11,7 +11,7 @@ import { RoutesPath }  from './components/RoutesPath'
 
 function App() {
 	return (
-		<BrowserRouter >
+		<BrowserRouter basename="/">
 			<ScrollToTop/>
 			<div className="app">
 				<Topbar ></Topbar>

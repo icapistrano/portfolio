@@ -20,8 +20,6 @@ export const IntroductionSection = () => {
     const pieBorder = useRef(null);
 
     const [imgIndex, setImgIndex] = useState(0);
-    // const dps = [dp0Img, dp1Img, dp2Img, dp3Img, dp4Img, dp5Img, dp6Img, dp7Img, dp8Img, dp9Img, dp10Img, dp11Img];
-
     const [dps, _] = useState([dp0Img, dp1Img, dp2Img, dp3Img, dp4Img, dp5Img, dp6Img, dp7Img, dp8Img, dp9Img, dp10Img, dp11Img])
 
     useEffect(() => {
@@ -54,7 +52,7 @@ export const IntroductionSection = () => {
                    
                         <h4>
                             Find out more from my
-                            <PageLink url="" text={'resume'}></PageLink>
+                            <PageLink url="https://drive.google.com/file/d/1hXImpzd1Hmwzdkdl9hGjtSmBh2dMmb2o/view?usp=sharing" text={'resume'} externalLink={true}></PageLink>
                             .
                         </h4>
                     </div>

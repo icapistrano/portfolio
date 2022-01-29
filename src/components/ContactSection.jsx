@@ -9,16 +9,16 @@ export const ContactSection = () => {
                 
                 <div className='social-icon-container'>
                     <a href="mailto:icapistrano97@outlook.com">
-                        <i className="fa fa-envelope-o" aria-hidden="true"></i>
+                        <i className="fa fa-regular fa-envelope" aria-hidden="true"></i>
                     </a>
                     <a href="https://github.com/icapistrano">
-                        <i className="fa fa-github"></i>
+                        <i className="fa fa-brands fa-github"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/icapistrano97">
-                        <i className="fa fa-linkedin"></i>
+                        <i className="fa fa-brands fa-linkedin-in"></i>
                     </a>
                     <a href="https://www.instagram.com/icapistrano_/">
-                        <i className="fa fa-instagram"></i>
+                        <i className="fa fa-brands fa-instagram"></i>
                     </a>
                 </div>
             </div>

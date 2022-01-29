@@ -38,11 +38,11 @@ export const Slideshow = ({ elements }) => {
                 )}
 
                 <div className='arrow-container left-arrow-container' onClick={() => plusSlides(-1)}>
-                    <a className="prev slideshow-arrow" href=''>&#10508;</a>
+                    <i className="fa fa-arrow-left" aria-hidden="true"></i>
                 </div>
 
                 <div className='arrow-container right-arrow-container' onClick={() => plusSlides(1)}>
-                    <a className="prev slideshow-arrow" href=''>&#10509;</a>
+                <i className="fa fa-arrow-right" aria-hidden="true"></i>
                 </div>
             </div>
             <div className='slideshow-slide-indicator-container margin-btm-30'>

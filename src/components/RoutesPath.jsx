@@ -16,12 +16,12 @@ import { useTransition, animated } from 'react-spring';
 
 export const RoutesPath = () => {
     const { pathname } = useLocation()
-	const transitions = useTransition(pathname, {
-        from:{opacity:0, transform: 'scale(1.1)'},
-        enter:{opacity:1, transform: 'scale(1)'},
-        leave:{opacity:0, transform: 'scale(0.9)', display:'none'},
-        config:{duration:500}
-    })
+    const transitions = useTransition(pathname, {
+          from:{opacity:0, transform: 'scale(1.1)'},
+          enter:{opacity:1, transform: 'scale(1)'},
+          leave:{opacity:0, transform: 'scale(0.9)', display:'none'},
+          config:{duration:500}
+      })
 
     return transitions((props, item) => (
         <animated.div style={props}>
