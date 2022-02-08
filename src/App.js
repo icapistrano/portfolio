@@ -1,4 +1,4 @@
-import "./app.css"
+import "./App.css"
 
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
@@ -17,7 +17,7 @@ function App() {
 				<Topbar ></Topbar>
 
 				<RoutesPath></RoutesPath>
-				
+
 				<ContactSection></ContactSection>
 			</div>
 		</BrowserRouter>
